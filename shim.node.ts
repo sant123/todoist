@@ -1,9 +1,3 @@
-declare global {
-  interface Crypto {
-    randomUUID: () => string;
-  }
-}
-
 // node-fetch shim has json() as unknown, so needs to be ported to any.
 declare module "node-fetch" {
   interface BodyMixin {

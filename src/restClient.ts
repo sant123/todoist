@@ -9,7 +9,7 @@ import type {
 } from "./types/http.ts";
 
 import type { PlainObject } from "./types/transformation.ts";
-import { randomUUID } from "./utils/randomUuid.ts";
+import { randomUUID } from "./utils/randomUuid.deno.ts";
 
 import {
   objectToCamelCase,
