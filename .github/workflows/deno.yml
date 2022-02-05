@@ -28,10 +28,10 @@ jobs:
           deno-version: v1.x
 
       - name: Verify formatting
-        run: deno fmt --check
+        run: deno fmt mod.ts README.md deps src --check
 
       - name: Run linter
-        run: deno lint
+        run: deno lint mod.ts deps src
 
       - name: Run tests
-        run: deno test
+        run: deno test src

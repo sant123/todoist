@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "outDir": "dist"
+  },
+  "deno2node": {
+    "shim": "shim.node.ts",
+    "vendorDir": "deps"
+  },
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+}

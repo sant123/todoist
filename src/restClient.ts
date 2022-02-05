@@ -9,6 +9,7 @@ import type {
 } from "./types/http.ts";
 
 import type { PlainObject } from "./types/transformation.ts";
+import { randomUUID } from "./utils/randomUuid.ts";
 
 import {
   objectToCamelCase,
@@ -75,7 +76,9 @@ function getHttpClient<T>(apiToken?: string, requestId?: string) {
       throw response;
     }
 
-    let data = await response.json();
+    // node-fetch shim has json() as unknown, so needs to be ported to any.
+    // deno-lint-ignore no-explicit-any
+    let data = await response.json() as any;
 
     if (Array.isArray(data)) {
       data = data.map(objectToCamelCase);
@@ -124,7 +127,7 @@ async function _request<T extends unknown>(
 ): Promise<HttpClientResponse<T>> {
   try {
     if (httpMethod === "POST" && !requestId) {
-      requestId = globalThis.crypto.randomUUID();
+      requestId = randomUUID();
     }
 
     const httpClient = getHttpClient<T>(apiToken, requestId);

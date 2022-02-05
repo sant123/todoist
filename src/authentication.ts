@@ -33,10 +33,6 @@ export type RevokeAuthTokenRequestArgs = {
   accessToken: string;
 };
 
-export function getAuthStateParameter(): string {
-  return globalThis.crypto.randomUUID();
-}
-
 export function getAuthorizationUrl(
   clientId: string,
   permissions: Permission[],
