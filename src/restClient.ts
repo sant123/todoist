@@ -76,9 +76,7 @@ function getHttpClient<T>(apiToken?: string, requestId?: string) {
       throw response;
     }
 
-    // node-fetch shim has json() as unknown, so needs to be ported to any.
-    // deno-lint-ignore no-explicit-any
-    let data = await response.json() as any;
+    let data = await response.json();
 
     if (Array.isArray(data)) {
       data = data.map(objectToCamelCase);
