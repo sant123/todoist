@@ -1,9 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "outDir": "dist"
+    "alwaysStrict": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "lib": ["dom", "esnext"],
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "target": "es5"
   },
   "deno2node": {
     "shim": "shim.node.ts",
